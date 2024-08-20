@@ -21,8 +21,7 @@ public class Person {
         System.out.println("Email: " + email);
         System.out.println("Телефон: " + phone);
         System.out.println("Зарплата: " + salary);
-        System.out.println("Возраст: " + age);
-        System.out.println();
+        System.out.println("Возраст: " + age + "\n");
     }
 
     public static void main(String[] args) {
