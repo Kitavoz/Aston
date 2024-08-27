@@ -1,22 +1,36 @@
 public class Main {
     public static void main(String[] args) {
-        //Первое задание
-        Person[] persArray = new Person[5];
-        persArray[0] = new Person("Ivanov Ivan", "Engineer", "ivanov@mail.com", "892312312", 30000, 30);
-        persArray[1] = new Person("Petrov Petr", "Manager", "petrov@mail.com", "893214312", 50000, 35);
-        persArray[2] = new Person("Sidorov Sidor", "Developer", "sidorov@mail.com", "894212512", 60000, 28);
-        persArray[3] = new Person("Smirnov Smir", "Analyst", "smirnov@mail.com", "895213213", 45000, 40);
-        persArray[4] = new Person("Kuznetsov Kuzma", "Designer", "kuznetsov@mail.com", "896214314", 55000, 32);
-        for (Person Person : persArray) {
-            Person.printInfo();
+        String[][] correct = {
+                {"1", "2", "3", "4"},
+                {"5", "6", "7", "8"},
+                {"9", "10", "11", "12"},
+                {"13", "14", "15", "16"}
+        };
+        String[][] wrongSize = {
+                {"1", "2", "3"},
+                {"4", "5", "6"},
+                {"7", "8", "9"}
+        };
+        String[][] wrongData = {
+                {"1", "2", "3", "4"},
+                {"5", "6", "seven", "8"},
+                {"9", "10", "11", "12"},
+                {"13", "14", "15", "16"}
+        };
+        try {
+            System.out.println("Сумма правильного массива: " + Array.processArray(correct));
+        } catch (MyArraySizeException | MyArrayDataException e) {
+            System.out.println(e.getMessage());
         }
-        //Второе задание
-        Park park = new Park();
-        Park.Attraction ferrisWheel = park.new Attraction("Колесо обозрения", "10:00 - 22:00", 300);
-        Park.Attraction rollerCoaster = park.new Attraction("Американские горки", "11:00 - 20:00", 500);
-        Park.Attraction houseOfFear = park.new Attraction("Дом страха", "12:00 - 21:00", 400);
-        ferrisWheel.printInfo();
-        rollerCoaster.printInfo();
-        houseOfFear.printInfo();
+        try {
+            System.out.println("Сумма массива с неправильным размером: " + Array.processArray(wrongSize));
+        } catch (MyArraySizeException | MyArrayDataException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            System.out.println("Сумма массива с неверными данными: " + Array.processArray(wrongData));
+        } catch (MyArraySizeException | MyArrayDataException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
